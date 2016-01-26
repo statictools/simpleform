@@ -35,8 +35,8 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :simpleform, Simpleform.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "ecto",
+  password: "ecto",
   database: "simpleform_dev",
   hostname: "localhost",
   pool_size: 10
