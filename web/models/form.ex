@@ -3,6 +3,7 @@ defmodule Simpleform.Form do
 
   schema "forms" do
     field :name, :string
+    field :public_id, Ecto.UUID
 
     timestamps
   end

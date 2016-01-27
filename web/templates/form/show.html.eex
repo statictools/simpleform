@@ -1,13 +1,12 @@
-<h2>Show form</h2>
+<h2>Form '<%= @form.name  %>'</h2>
 
-<ul>
+<p>You can use the code below to get started</p>
 
-  <li>
-    <strong>Name:</strong>
-    <%= @form.name %>
-  </li>
-
-</ul>
-
-<%= link "Edit", to: form_path(@conn, :edit, @form) %>
-<%= link "Back", to: form_path(@conn, :index) %>
+<pre>
+<%= "<form action='https://getsimpleform.com/form/#{@form.public_id}' method='post' accept-charset='utf-8'>
+  <p><input type='text' name='Email' placeholder='Enter your email'></p>
+  <p><textarea placeholder='Your message' name='message' cols='30' rows='10'></textarea></p>
+  <p><input type='submit' value='Submit'></p>
+</form>"
+%>
+</pre>
