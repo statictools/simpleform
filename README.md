@@ -1,5 +1,7 @@
 # Simpleform
 
+** Checkout the LICENSE in the [LICENSE](LICENSE) file **
+
 To start your Phoenix app:
 
   * Install dependencies with `mix deps.get`

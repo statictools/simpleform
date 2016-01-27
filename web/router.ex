@@ -19,7 +19,7 @@ defmodule Simpleform.Router do
     get "/", PageController, :index
     get "/registration/", RegistrationController, :index
 
-    resources "/form", FormController
+    resources "/forms", FormController
   end
 
   # Other scopes may use custom stacks.
