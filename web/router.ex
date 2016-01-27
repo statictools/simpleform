@@ -9,8 +9,18 @@ defmodule Simpleform.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :form_api do
+    plug :accepts, ["html", "json"]
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
+  end
+
+  scope "/form/", Simpleform do
+    pipe_through :form_api # Use the minimal pipeline
+
+    post "/:id", External.MessageController, :create
   end
 
   scope "/", Simpleform do
@@ -24,6 +34,6 @@ defmodule Simpleform.Router do
 
   # Other scopes may use custom stacks.
   # scope "/api", Simpleform do
-  #   pipe_through :api
-  # end
+    #   pipe_through :api
+    # end
 end
