@@ -1,0 +1,26 @@
+<h2>Listing forms</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for form <- @forms do %>
+    <tr>
+      <td><%= form.name %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: form_path(@conn, :show, form), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: form_path(@conn, :edit, form), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: form_path(@conn, :delete, form), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New form", to: form_path(@conn, :new) %>

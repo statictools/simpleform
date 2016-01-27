@@ -1,6 +1,6 @@
-<h2>New form</h2>
+<h2>Edit form</h2>
 
 <%= render "form.html", changeset: @changeset,
-                        action: form_path(@conn, :create) %>
+                        action: form_path(@conn, :update, @form) %>
 
 <%= link "Back", to: form_path(@conn, :index) %>
