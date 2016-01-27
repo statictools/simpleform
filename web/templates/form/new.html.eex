@@ -1,0 +1,6 @@
+<h1>New Form</h1>
+
+<form action="/form" method="POST" accept-charset="utf-8">
+  <p><input type="text" name="name" placeholder='Form Name'></p>
+  <p><input type="submit" value="Create Form"></p>
+</form>
