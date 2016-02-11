@@ -18,7 +18,7 @@ defmodule Simpleform.Router do
   end
 
   scope "/form/", Simpleform do
-    pipe_through :form_api # Use the minimal pipeline
+    pipe_through :form_api # Use the minimal pipeline needed
 
     post "/:id", External.MessageController, :create
   end

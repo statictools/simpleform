@@ -20,7 +20,7 @@ defmodule Simpleform.Message do
     # create the message in the database
     # TODO: handle json errors
     {_, json} = Poison.encode(message_params)
-    Repo.insert(%Message{form_id: form.public_id, data: json})
+    Repo.insert(%Message{form_id: form.id, data: json})
     #TODO: redirect the user to the redirect path
     {:ok, "/"}
   end

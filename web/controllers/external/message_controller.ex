@@ -15,7 +15,7 @@ defmodule Simpleform.External.MessageController do
     message_params = form_params |> Map.drop(@filter_params)
 
     # find the form
-    case Repo.get_by(Form, public_id: form_id) do
+    case Repo.get_by(Form, id: form_id) do
       nil ->
         Logger.debug "Did not find the form"
         # TODO: create a help page for users to find and debug
