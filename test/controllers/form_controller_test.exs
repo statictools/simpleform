@@ -44,7 +44,7 @@ defmodule Simpleform.FormControllerTest do
 
   test "renders page not found when id is nonexistent", %{conn: conn} do
     assert_error_sent 404, fn ->
-      get conn, form_path(conn, :show, -1)
+      get conn, form_path(conn, :show, Ecto.UUID.generate)
     end
   end
 
@@ -65,8 +65,7 @@ defmodule Simpleform.FormControllerTest do
 
   test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
     form = Repo.insert! %Form{name: "fooff"}
-    IO.inspect form
-    conn = put conn, form_path(conn, :update, form), form: @invalid_attrs
+    conn = put conn, form_path(conn, :update, form), form: %{"name" => ""}
     assert html_response(conn, 200) =~ "Edit form"
     form = Repo.get(Form, form.id)
     assert form.name == "fooff"

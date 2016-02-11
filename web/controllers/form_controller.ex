@@ -42,20 +42,16 @@ defmodule Simpleform.FormController do
   end
 
   def update(conn, %{"id" => id, "form" => form_params}) do
+
     form = Repo.get!(Form, id)
     changeset = Form.changeset(form, form_params)
 
     case Repo.update(changeset) do
       {:ok, form} ->
-        Logger.error "GOT CH"
-        #Logger.error inspect(form)
-        Logger.error inspect(id)
-        Logger.error inspect(form_params)
         conn
         |> put_flash(:info, "Form updated successfully.")
         |> redirect(to: form_path(conn, :show, form))
       {:error, changeset} ->
-        Logger.error "ERROR>>"
         render(conn, "edit.html", form: form, changeset: changeset)
     end
   end
