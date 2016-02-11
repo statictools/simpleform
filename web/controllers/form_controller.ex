@@ -4,6 +4,7 @@ defmodule Simpleform.FormController do
   use Simpleform.Web, :controller
 
   alias Simpleform.Form
+  alias Simpleform.Message
 
   plug :scrub_params, "form" when action in [:create, :update]
 
@@ -32,7 +33,8 @@ defmodule Simpleform.FormController do
 
   def show(conn, %{"id" => id}) do
     form = Repo.get!(Form, id)
-    render(conn, "show.html", form: form)
+    messages = Repo.all(from m in Message, where: m.form_id == ^form.id, limit: 10)
+    render(conn, "show.html", form: form, messages: messages)
   end
 
   def edit(conn, %{"id" => id}) do

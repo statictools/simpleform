@@ -1,7 +1,10 @@
   [x] Ability to create forms
   [x] Show the help for a form
   [x] Store messages for a form
-  [ ] Remove id from form and make public id the primary key
+  [x] Remove id from form and make public id the primary key
+  [ ] Show messages
+  [ ] Add dynamic queryability to make an app
   [ ] Add redundancy in servers
   [ ] Setup workflows
   [ ] Setup integration with Amazon SES
+  [ ] Change message id to uuid

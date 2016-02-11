@@ -5,8 +5,26 @@
   </small>
 </h2>
 
+<h2>Latest 10 messages</h2>
+<table class='table'>
+  <tr>
+    <th>ID</th>
+  </tr>
+  <%= for m <- @messages do %>
+    <tr><td><%= m.id %></td></tr>
+  <% end %>
+</table>
+
+<hr>
+
+<h2>Setup</h2>
+
+<div class="row">
+  <div class="col-md-6">
+
 <p>You can use the code below to get started</p>
 
+<h3>Demo Form Code</h3>
 <pre>
 <%= "<form action='https://getsimpleform.com/form/#{@form.id}'
 method='post' accept-charset='utf-8'>
@@ -20,10 +38,10 @@ method='post' accept-charset='utf-8'>
 </form>"
 %>
 </pre>
+  </div>
 
-<h2>Test it by sending a message using the above demo form</h2>
-<div class="row">
   <div class="col-md-6">
+<h3>Test it by sending a message using the above demo form</h3>
     <form action='/form/<%= @form.id %>'
       method='post' accept-charset='utf-8'>
       <input name='_utf8' type='hidden' value='&#x2713;' />
