@@ -1,4 +1,6 @@
 defmodule Simpleform.FormController do
+  require Logger
+
   use Simpleform.Web, :controller
 
   alias Simpleform.Form
@@ -45,10 +47,15 @@ defmodule Simpleform.FormController do
 
     case Repo.update(changeset) do
       {:ok, form} ->
+        Logger.error "GOT CH"
+        #Logger.error inspect(form)
+        Logger.error inspect(id)
+        Logger.error inspect(form_params)
         conn
         |> put_flash(:info, "Form updated successfully.")
         |> redirect(to: form_path(conn, :show, form))
       {:error, changeset} ->
+        Logger.error "ERROR>>"
         render(conn, "edit.html", form: form, changeset: changeset)
     end
   end

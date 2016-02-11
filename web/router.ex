@@ -26,7 +26,8 @@ defmodule Simpleform.Router do
   scope "/", Simpleform do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/", FormController, :index
+    #get "/", PageController, :index
     get "/registration/", RegistrationController, :index
 
     resources "/forms", FormController

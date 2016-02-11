@@ -2,9 +2,9 @@ defmodule Simpleform.Repo.Migrations.CreateForm do
   use Ecto.Migration
 
   def change do
-    create table(:forms) do
+    create table(:forms, primary_key: false) do
+      add :id, :uuid, primary_key: true
       add :name, :string
-      add :public_id, :uuid, default: fragment("uuid_generate_v4()")
 
       timestamps
     end

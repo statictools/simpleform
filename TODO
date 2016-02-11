@@ -2,3 +2,6 @@
   [ ] Show the help for a form
   [ ] Store messages for a form
   [ ] Remove id from form and make public id the primary key
+  [ ] Add redundancy in servers
+  [ ] Setup workflows
+  [ ] Setup integration with Amazon SES

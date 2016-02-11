@@ -12,8 +12,8 @@ config :logger, level: :warn
 # Configure your database
 config :simpleform, Simpleform.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "simpleform_test",
+  username: "ecto",
+  password: "ecto",
+  database: "simpleform2_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox

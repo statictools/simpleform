@@ -1,9 +1,14 @@
-<h2>Form '<%= @form.name  %>'</h2>
+<h2 class='page-header'>
+  <%= @form.name  %>
+  <small class="pull-right">
+    <%= link "All Forms", to: form_path(@conn, :index), class: "btn btn-default" %>
+  </small>
+</h2>
 
 <p>You can use the code below to get started</p>
 
 <pre>
-<%= "<form action='https://getsimpleform.com/form/#{@form.public_id}'
+<%= "<form action='https://getsimpleform.com/form/#{@form.id}'
   method='post' accept-charset='utf-8'>
   <input name='_utf8' type='hidden' value='&#x2713;' />
 

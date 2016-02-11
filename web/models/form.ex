@@ -1,9 +1,10 @@
 defmodule Simpleform.Form do
   use Simpleform.Web, :model
 
+  @primary_key {:id, :binary_id, autogenerate: true }
+
   schema "forms" do
     field :name, :string
-    field :public_id, Ecto.UUID
 
     timestamps
   end
