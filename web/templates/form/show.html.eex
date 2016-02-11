@@ -9,14 +9,30 @@
 
 <pre>
 <%= "<form action='https://getsimpleform.com/form/#{@form.id}'
-  method='post' accept-charset='utf-8'>
-  <input name='_utf8' type='hidden' value='&#x2713;' />
+method='post' accept-charset='utf-8'>
+<input name='_utf8' type='hidden' value='&#x2713;' />
 
-  <input type='text' name='Email' placeholder='Enter your email'>
-  <br>
-  <textarea placeholder='Your message' name='message' cols='30' rows='10'></textarea>
-  <br>
-  <button type='submit'>Submit</button>
+<input type='text' name='Email' placeholder='Enter your email'>
+<br>
+<textarea placeholder='Your message' name='message' cols='30' rows='10'></textarea>
+<br>
+<button type='submit'>Submit</button>
 </form>"
 %>
 </pre>
+
+<h2>Test it by sending a message using the above demo form</h2>
+<div class="row">
+  <div class="col-md-6">
+    <form action='/form/<%= @form.id %>'
+      method='post' accept-charset='utf-8'>
+      <input name='_utf8' type='hidden' value='&#x2713;' />
+
+      <input type='text' name='Email' placeholder='Enter your email' class='form-control'>
+      <br>
+      <textarea placeholder='Your message' name='message' cols='30' rows='10' class='form-control'></textarea>
+      <br>
+      <button type='submit'>Submit</button>
+    </form>
+  </div>
+</div>
