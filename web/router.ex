@@ -31,6 +31,7 @@ defmodule Simpleform.Router do
     get "/registration/", RegistrationController, :index
 
     resources "/forms", FormController
+    resources "/messages", MessageController
   end
 
   # Other scopes may use custom stacks.

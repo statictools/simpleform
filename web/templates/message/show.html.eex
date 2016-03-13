@@ -1,0 +1,1 @@
+<h1>Message <%= short_uuid @message.id %></h1>

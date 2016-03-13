@@ -1,6 +1,8 @@
 defmodule Simpleform.Message do
   use Simpleform.Web, :model
 
+  @primary_key {:id, :binary_id, autogenerate: true }
+
   alias Simpleform.Repo
   alias Simpleform.Message
 
@@ -24,4 +26,5 @@ defmodule Simpleform.Message do
     #TODO: redirect the user to the redirect path
     {:ok, "/"}
   end
+
 end

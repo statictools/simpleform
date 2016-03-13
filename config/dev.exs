@@ -37,6 +37,6 @@ config :simpleform, Simpleform.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "ecto",
   password: "ecto",
-  database: "simpleform_dev",
+  database: "simpleform2_dev",
   hostname: "localhost",
   pool_size: 10

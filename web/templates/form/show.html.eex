@@ -11,7 +11,11 @@
     <th>ID</th>
   </tr>
   <%= for m <- @messages do %>
-    <tr><td><%= m.id %></td></tr>
+    <tr><td>
+        <a href='/messages/<%= m.id %>'>
+        <%= short_uuid m.id %>
+        </a>
+    </td></tr>
   <% end %>
 </table>
 
