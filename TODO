@@ -1,8 +1,11 @@
+  [ ] Authentication using Gmail
+
   [x] Ability to create forms
   [x] Show the help for a form
   [x] Store messages for a form
   [x] Remove id from form and make public id the primary key
-  [ ] Show messages
+  [x] Show messages
+  [x] Use a JSON api and a SPA to render stuff
   [ ] Add dynamic queryability to make an app
   [ ] Add redundancy in servers
   [ ] Setup workflows
