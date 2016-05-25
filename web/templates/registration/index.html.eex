@@ -1,2 +1,11 @@
-<h1>Hahaa</h1>
+<h1 class="page-header">Register</h1>
 
+<%= form_for @conn, "/registration", [as: :registration], fn(f) ->%>
+<%= label f, :email %>
+<%= text_input f, :email %>
+<br>
+<%= label f, :password %>
+<%= password_input f, :password %>
+<br>
+<%= submit "Register / Sign Up" %>
+<% end %>

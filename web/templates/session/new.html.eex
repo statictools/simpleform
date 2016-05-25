@@ -1,0 +1,11 @@
+<h1>Sign In</h1>
+
+<%= form_for @conn, "/sessions/", [as: :session], fn(f)->  %>
+<%= label f, :email %>
+<%= text_input f, :email %>
+<br>
+<%= label f, :password %>
+<%= password_input f, :password %>
+<br>
+<%= submit "Sign In" %>
+<% end %>

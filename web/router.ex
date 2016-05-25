@@ -28,7 +28,11 @@ defmodule Simpleform.Router do
 
     get "/", FormController, :index
     #get "/", PageController, :index
+
     get "/registration/", RegistrationController, :index
+    post "/registration/", RegistrationController, :create
+
+    resources "/sessions", SessionController
 
     resources "/forms", FormController
     resources "/messages", MessageController
