@@ -7,10 +7,19 @@ defmodule Simpleform.FormController do
   alias Simpleform.Message
 
   plug :scrub_params, "form" when action in [:create, :update]
+  plug Guardian.Plug.VerifySession
+  plug Guardian.Plug.LoadResource
+  plug Guardian.Plug.EnsureAuthenticated, handler: __MODULE__
+
+  def unauthenticated(conn, _params) do
+    conn
+    |> redirect(to: "/sessions/new")
+  end
 
   def index(conn, _params) do
     forms = Repo.all(Form)
-    render(conn, "index.html", forms: forms)
+    user = Guardian.Plug.current_resource(conn)
+    render(conn, "index.html", forms: forms, user: user)
   end
 
   def new(conn, _params) do

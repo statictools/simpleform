@@ -33,9 +33,9 @@ defmodule Simpleform.User do
     })
   end
 
-  def authenticaction_valid?(email, password) do
+  def authentication_valid?(email, password) do
     user = Repo.get_by(Simpleform.User, email: email)
-    user && Comeonin.Bcrypt.checkpw(password, user.encrypted_password)
+    {user && Comeonin.Bcrypt.checkpw(password, user.encrypted_password), user}
   end
 
 end

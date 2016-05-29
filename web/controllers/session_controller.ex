@@ -8,10 +8,19 @@ defmodule Simpleform.SessionController do
   end
 
   def create(conn, %{"session" => %{ "email" => email, "password" => password}}) do
-    if User.authenticaction_valid?(email, password) do
-      conn |> text("Awesome, valid username and password.")
+    {valid, user} = User.authentication_valid?(email, password)
+    if valid do
+      conn
+      |> Guardian.Plug.sign_in(user)
+      |> redirect(to: "/")
     else
       conn |> text("Email or password is not valid")
     end
+  end
+
+  def destroy(conn, _params) do
+    conn
+    |> Guardian.Plug.sign_out
+    |> redirect(to: "/")
   end
 end

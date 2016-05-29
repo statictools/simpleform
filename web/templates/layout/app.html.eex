@@ -15,12 +15,23 @@
     <div class="fluid-container">
       <header class="header">
         <nav role="navigation">
+          <%= if user_signed_in?(@conn) do %>
+            <p class='navbar-text pull-right'><%= current_user(@conn).email %></p>
+          <% end %>
           <ul class="nav nav-pills pull-right">
             <li><a href="/">Home</a></li>
+            <%= if !user_signed_in?(@conn) do %>
+              <li><a href="/sessions/new">Sign In</a></li>
+          <% else %>
+            <li>
+              <%= link "Sign Out", to: "/sessions", method: :delete %>
+            </li>
+            <% end %>
           </ul>
         </nav>
         <span class="logo"></span>
       </header>
+
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
